@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>LucidaDragon</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>A light-weight HTTP server with support for self-documenting APIs.</Description>
+    <PackageProjectUrl>https://github.com/LucidaDragon/EmbeddedHTTP</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/LucidaDragon/EmbeddedHTTP</RepositoryUrl>
+    <PackageTags>http, http server, server, web, api, json</PackageTags>
+    <PackageId>Lucida.EmbeddedHTTP</PackageId>
   </PropertyGroup>
 
 </Project>
