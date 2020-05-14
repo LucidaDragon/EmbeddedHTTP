@@ -9,6 +9,14 @@
     <RepositoryUrl>https://github.com/LucidaDragon/EmbeddedHTTP</RepositoryUrl>
     <PackageTags>http, http server, server, web, api, json</PackageTags>
     <PackageId>Lucida.EmbeddedHTTP</PackageId>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
