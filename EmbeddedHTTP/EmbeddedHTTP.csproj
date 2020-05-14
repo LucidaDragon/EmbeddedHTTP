@@ -10,9 +10,15 @@
     <PackageTags>http, http server, server, web, api, json</PackageTags>
     <PackageId>Lucida.EmbeddedHTTP</PackageId>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageIcon>Icon.png</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\Icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
