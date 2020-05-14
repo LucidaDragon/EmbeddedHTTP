@@ -39,14 +39,14 @@ namespace EmbeddedHTTP
         /// <summary>
         /// Add a type with services to the server's local scope.
         /// </summary>
-        /// <param name="service">The type search for services in.</param>
+        /// <param name="services">The type search for services in.</param>
         /// <returns>An array of endpoints registered during the operation.</returns>
-        public string[] AddService(Type service)
+        public string[] AddService(Type services)
         {
-            var instance = service.GetConstructor(Type.EmptyTypes).Invoke(null);
+            var instance = services.GetConstructor(Type.EmptyTypes).Invoke(null);
             var result = new List<string>();
 
-            foreach (var method in service.GetMethods())
+            foreach (var method in services.GetMethods())
             {
                 var attrib = method.GetCustomAttribute<ServiceAttribute>();
 
@@ -62,6 +62,37 @@ namespace EmbeddedHTTP
             }
 
             return result.ToArray();
+        }
+
+        /// <summary>
+        /// Add an endpoint and service to the server's local scope.
+        /// </summary>
+        /// <param name="path">The endpoint for the service.</param>
+        /// <param name="service">The service to add.</param>
+        public void AddService(string path, Service service)
+        {
+            Services.Add(path, service);
+        }
+
+        /// <summary>
+        /// Gets the service associated with the specified endpoint within the server's local scope.
+        /// </summary>
+        /// <param name="path">The endpoint for the service.</param>
+        /// <param name="service">The service associated with the endpoint.</param>
+        /// <returns>If the service is within the server's local scope.</returns>
+        public bool TryGetService(string path, out Service service)
+        {
+            return Services.TryGetValue(path, out service);
+        }
+
+        /// <summary>
+        /// Removes the service associated with the specified endpoint from the server's local scope.
+        /// </summary>
+        /// <param name="path">The endpoint for the service.</param>
+        /// <returns>If the service was removed successfully.</returns>
+        public bool RemoveService(string path)
+        {
+            return Services.Remove(path);
         }
 
         /// <summary>
