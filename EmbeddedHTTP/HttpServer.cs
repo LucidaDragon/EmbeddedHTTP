@@ -65,13 +65,12 @@ namespace EmbeddedHTTP
         }
 
         /// <summary>
-        /// Add an endpoint and service to the server's local scope.
+        /// Add a service to the server's local scope.
         /// </summary>
-        /// <param name="path">The endpoint for the service.</param>
         /// <param name="service">The service to add.</param>
-        public void AddService(string path, Service service)
+        public void AddService(Service service)
         {
-            Services.Add(path, service);
+            Services.Add(service.Path, service);
         }
 
         /// <summary>
